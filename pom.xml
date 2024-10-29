@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- קובץ POM, שמגדיר את הפרויקט, תלותיו וגרסאות הבניה שלו -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- מציין את גרסת המודל של Maven בה הקובץ משתמש -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- מזהה קבוצת הפרויקט ושם המודול (artifact)  -->
+    <groupId>com.example</groupId>
+    <artifactId>Oren_2024_10_23_4</artifactId>
+    <!-- גרסת הפרויקט, למשל 1.0 או SNAPSHOT לפיתוח -->
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- הגדרת גרסאות קוד המקור והיעד עבור הקומפילציה, גרסה 17 של Java -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- קידוד הטקסט בפרויקט ל-UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- הגדרת גרסת Spring Boot -->
+        <spring-boot.version>2.7.5</spring-boot.version>
+    </properties>
+
+    <dependencies>
+        <!-- תלות בספריית Spring Boot Starter Web, עבור פיתוח יישומי רשת -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- תלות ב-Thymeleaf עבור יצירת תבניות ביישומי רשת -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- תלות ב-Spring Boot Data JPA, מאפשר גישה קלה למסדי נתונים -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- מחבר MySQL, עבור חיבור למסדי נתונים של MySQL -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.32</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- תלות ב-Apache Tomcat כחלק מ-Spring Boot להפעלת השרת -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- תלות ב-JAXB API, לשימוש בעבודה עם XML -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- תלות ב-JAXB Runtime לצורך הפעלת JAXB בזמן ריצה -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- ספריית Apache POI לעבודה עם קבצי Excel -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin עבור ניהול והפעלת Spring Boot באמצעות Maven -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.3.4</version> <!-- הגדרת גרסה ל-plugin -->
+            </plugin>
+        </plugins>
+    </build>
+</project>

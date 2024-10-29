@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>בדיקת התאמה של טבלה</title>
+</head>
+<body>
+<h1>הטבלה כבר קיימת: <span th:text="${tableName}"></span></h1>
+
+<p>שמות העמודות בטבלה אינם תואמים לעמודות בקובץ ה-Excel:</p>
+<ul>
+    <!-- הצגת העמודות שלא תואמות -->
+    <li th:each="column : ${missingColumns}" th:text="${column}"></li>
+</ul>
+
+<p>האם תרצה ליצור טבלה חדשה עם שם שונה?</p>
+
+<form action="/create-new-table" method="post">
+    <!-- שימור כל המשתנים מהמשתמש -->
+    <input type="hidden" name="dbUrl" th:value="${dbUrl}">
+    <input type="hidden" name="username" th:value="${username}">
+    <input type="hidden" name="password" th:value="${password}">
+    <input type="hidden" name="excelFilePath" th:value="${excelFilePath}">
+    <input type="hidden" name="sheetName" th:value="${sheetName}">
+
+    <label for="newTableName">שם חדש לטבלה:</label>
+    <input type="text" id="newTableName" name="newTableName" required>
+    <button type="submit">כן, צור טבלה חדשה</button>
+</form>
+
+<form action="/cancel-creation" method="post">
+    <button type="submit">לא, אל תיצור טבלה</button>
+</form>
+</body>
+</html>
